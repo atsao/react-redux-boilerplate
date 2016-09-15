@@ -8,3 +8,13 @@ Boilerplate template for react-redux projects (under construction)
 * Redux
 * Node
 * Express
+
+## Getting Started
+
+To install dependencies:
+
+`npm install`
+
+Then run:
+
+`npm start`

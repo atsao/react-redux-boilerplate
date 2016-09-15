@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config webpack.dev.config.js --progress --colors --watch"
+    "start": "node server/server.js",
+    "build": "webpack --config webpack.dev.config.js --progress --colors --watch"
   },
   "repository": {
     "type": "git",

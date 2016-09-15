@@ -1,0 +1,1 @@
+sudo npm install --save axios babel-core babel-loader babel-polyfill babel-preset-es2015 babel-preset-react body-parser express morgan path react react-dom react-redux react-router react-router-redux redux redux-thunk webpack

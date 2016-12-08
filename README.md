@@ -8,6 +8,8 @@ Boilerplate template for react-redux projects (under construction)
 * Redux
 * Node
 * Express
+* Webpack
+  * Hot Module Reload
 
 ## Getting Started
 

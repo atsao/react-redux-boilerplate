@@ -16,10 +16,9 @@ export const store = createStoreWithMiddleware(rootReducer);
 
 const history = syncHistoryWithStore(browserHistory, store, { adjustUrlOnReplay: true });
 
-render (
+render(
   <Provider store={ store }>
     <Router history={ history } routes={ routes } />
   </Provider>
   , mount
 );
-

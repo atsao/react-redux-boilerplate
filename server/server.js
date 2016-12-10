@@ -1,8 +1,10 @@
+const path = require('path');
+
 const express = require('express');
 const webpack = require('webpack');
 const bodyParser = require('body-parser');
-const path = require('path');
 const morgan = require('morgan');
+
 const config = require('../webpack.config');
 
 const app = express();
@@ -13,7 +15,7 @@ const port = process.env.PORT || 5000;
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(require('webpack-dev-middleware')(compiler, {
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
 }));
 app.use(require('webpack-hot-middleware')(compiler));
 
@@ -26,6 +28,8 @@ app.all('*', (req, res) => {
 });
 
 app.listen(port, (err) => {
+  /* eslint-disable */
   if (err) return console.error(err);
   console.log('App is listening on', port);
+  /* eslint-enable */
 });

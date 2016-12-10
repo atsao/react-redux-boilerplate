@@ -1,5 +1,5 @@
-module.exports = function(app) {
-  app.route('/').get(function(req, res) {
+module.exports = (app) => {
+  app.route('/').get((req, res) => {
     res.send('OK');
   });
 }

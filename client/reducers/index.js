@@ -5,5 +5,5 @@ import Sample from './sample';
 
 export default combineReducers({
   sample: Sample,
-  routing: routerReducer
+  routing: routerReducer,
 });

@@ -5,8 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "lint": "eslint **/*.js --ignore-path node_modules/",
-    "lint:fix": "eslint **/*.js --fix --ignore-path node_modules/"
+    "lint": "eslint \"**/*.js\"",
+    "lint:fix": "eslint \"**/*.js\" --fix"
   },
   "repository": {
     "type": "git",

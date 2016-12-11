@@ -1,4 +1,5 @@
 const path = require('path');
+
 const webpack = require('webpack');
 
 module.exports = {
@@ -17,9 +18,9 @@ module.exports = {
         loader: 'eslint',
         include: [
           path.resolve(__dirname, 'client'),
-          path.resolve(__dirname, 'server')
-        ]
-      }
+          path.resolve(__dirname, 'server'),
+        ],
+      },
     ],
     loaders: [
       {

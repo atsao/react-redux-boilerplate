@@ -2,12 +2,12 @@
 
 Boilerplate template for react-redux projects (under construction)
 
-## Includes
+## Features
 
-* React packages - Babel, ES6
+* React
+* Babel, ES6
 * Redux
-* Node
-* Express
+* Node/Express
 * Webpack
   * Hot Module Reload
 

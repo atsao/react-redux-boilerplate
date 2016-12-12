@@ -16,15 +16,28 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
+  contentBase: config.output.contentBase,
+  hot: true,
+  quiet: false,
+  stats: {
+    colors: true,
+  },
+  noInfo: true,
+  watchOptions: {
+    ignored: /node_modules/,
+  },
 }));
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.use(express.static(path.join(__dirname, '../client')));
+if (process.env.NODE_ENV !== "development") {
+  app.use(express.static(path.resolve(__dirname, 'dist')));
+}
+
 app.use('/api', router);
 require('./routes/routes.js')(router);
 
 app.all('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
+  res.sendFile(path.resolve(__dirname, '/dist/index.html'));
 });
 
 app.listen(port, (err) => {
@@ -33,3 +46,5 @@ app.listen(port, (err) => {
   console.log('App is listening on', port);
   /* eslint-enable */
 });
+
+module.exports = app;

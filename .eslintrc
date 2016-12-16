@@ -1,23 +1,21 @@
 {
   "extends": ["react-app"],
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "impliedStrict": true,
-      "experimetalObjectRestSpread": true,
-      "jsx": true
-    }
-  },
   "plugins": [
     "react"
   ],
   "rules": {
-    "comma-dangle": [2, "always-multiline"],
-    "key-spacing": [2, {"afterColon": true}]
+    "no-extra-semi": "warn",
+    "no-multiple-empty-lines": [1, {"max": 1, "maxEOF": 1}],
+    "no-trailing-spaces": "warn",
+
+    "comma-dangle": [1, "always-multiline"],
+    "eol-last": [1, "always"],
+    "jsx-quotes": [1, "prefer-double"],
+    "key-spacing": [2, {"afterColon": true}],
+    "space-before-function-paren": [1, "always"],
+
+    "import/order": [1, {"newlines-between": "always"}],
+
+    "react/jsx-curly-spacing": [1, "always"]
   }
 }

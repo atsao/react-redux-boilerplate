@@ -3,6 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const env = process.env.NODE_ENV || "development";
@@ -43,7 +44,7 @@ const config = {
     ],
     loaders: [
       {
-        test:  /\.(js|jsx)?$/,
+        test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel'],
         include: paths.app.src,
@@ -55,28 +56,22 @@ const config = {
       {
         test: /\.css$/,
         exclude: null,
-        loaders: [
-          'style',
-          'css?importLoaders=1',
-          'postcss',
-        ],
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss'),
       },
     ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.app.srcHtml,
     }),
-    new ExtractTextPlugin('[name].css', {
-      allChunks: true,
-    }),
+    new ExtractTextPlugin('[name].css', { allChunks: true }),
+    new ProgressBarPlugin({ clear: false }),
   ],
   resolve: {
-    // fallback: path.resolve('./node_modules'),
     fallback: paths.nodeModulesPath,
     extensions: [
       '',

@@ -5,9 +5,10 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
-    "test": "mocha --require babel-register",
+    "test": "eslint \"**/*.js\" && mocha --require babel-register",
     "lint": "eslint \"**/*.js\"",
-    "lint:fix": "eslint \"**/*.js\" --fix"
+    "lint:fix": "eslint \"**/*.js\" --fix",
+    "build": "NODE_ENV=production webpack --colors --progress"
   },
   "repository": {
     "type": "git",

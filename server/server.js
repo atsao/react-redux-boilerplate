@@ -12,33 +12,32 @@ const compiler = webpack(config);
 const router = express.Router();
 const port = process.env.PORT || 5000;
 
-app.use(morgan('tiny'));
 app.use(bodyParser.json());
-app.use(require('webpack-dev-middleware')(compiler, {
-  publicPath: config.output.publicPath,
-  contentBase: config.output.contentBase,
-  hot: true,
-  quiet: false,
-  stats: {
-    colors: true,
-  },
-  noInfo: true,
-  watchOptions: {
-    ignored: /node_modules/,
-  },
-}));
-app.use(require('webpack-hot-middleware')(compiler));
-
-if (process.env.NODE_ENV !== "development") {
-  app.use(express.static(path.resolve(__dirname, 'dist')));
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('tiny'));
+  app.use(require('webpack-dev-middleware')(compiler, {
+    publicPath: config.output.publicPath,
+    contentBase: config.output.contentBase,
+    hot: true,
+    quiet: false,
+    stats: {
+      colors: true,
+    },
+    noInfo: true,
+    watchOptions: {
+      ignored: /node_modules/,
+    },
+  }));
+  app.use(require('webpack-hot-middleware')(compiler));
+} else {
+  app.use(express.static(path.resolve(__dirname, 'public')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '/public/index.html'));
+  });
 }
 
 app.use('/api', router);
 require('./routes/routes.js')(router);
-
-app.all('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '/dist/index.html'));
-});
 
 app.listen(port, (err) => {
   /* eslint-disable */

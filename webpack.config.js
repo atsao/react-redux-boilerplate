@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-const env = process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || 'development';
 
 const resolvePath = relativePath => path.resolve(__dirname, relativePath);
 
@@ -22,12 +22,9 @@ const paths = {
   publicPath: '/',
 };
 
-const config = {
+let config = {
   devtool: 'eval',
-  entry: [
-    'webpack-hot-middleware/client',
-    paths.app.srcIndex,
-  ],
+  entry: [paths.app.srcIndex],
   output: {
     path: paths.app.build,
     filename: 'bundle.js',
@@ -61,15 +58,11 @@ const config = {
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.app.srcHtml,
     }),
     new ExtractTextPlugin('[name].css', { allChunks: true }),
-    new ProgressBarPlugin({ clear: false }),
   ],
   resolve: {
     fallback: paths.nodeModulesPath,
@@ -85,5 +78,35 @@ const config = {
     ];
   },
 };
+
+if (env === 'development') {
+  config.entry.push('webpack-hot-middleware/client');
+  config.plugins.push(
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new ProgressBarPlugin({ clear: false })
+  );
+}
+
+if (env === 'production') {
+  config.devtool = 'source-map';
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production'),
+      },
+    }),
+    new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        unused: true,
+        dead_code: true,
+        warnings: false,
+      },
+    })
+  );
+}
 
 module.exports = config;

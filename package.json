@@ -46,7 +46,9 @@
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.5",
     "redux": "^3.6.0",
+    "redux-actions": "^1.2.0",
     "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
   },

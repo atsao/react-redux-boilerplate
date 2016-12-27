@@ -1,8 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
-import App from '../components/app'; // Root layout
+import Root from '../components/Root'; // Root layout
+
+import Welcome from 'modules/todos';
 
 export default (
-  <Route path="/" component={ App } />
+  <Route path="/" component={ Root }>
+    <IndexRoute component={ Welcome }/>
+  </Route>
 );

@@ -66,6 +66,10 @@ let config = {
   ],
   resolve: {
     fallback: paths.nodeModulesPath,
+    modulesDirectories: [
+      'node_modules',
+      'src',
+    ],
     extensions: [
       '',
       '.js',

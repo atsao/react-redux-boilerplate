@@ -1,15 +1,35 @@
 # React-Redux Boilerplate (WIP)
 
-Boilerplate template for react-redux projects (under construction)
+_Under Construction_
+
+Boilerplate template for react-redux projects.
+
+This version will utilize the features below. I have plans to create alternative templates that utilize other technologies.
 
 ## Features
 
 * React
-* Babel, ES6
 * Redux
+  * Reselect
+  * Sagas
 * Node/Express
+* Babel, ES6 with linting
+* PostCSS
 * Webpack
   * Hot Module Reload
+
+## Application Organization
+
+```
+src/
+  app/
+  features/
+  routes/
+  shared/
+  utils/
+  index.js
+  rootReducer.js
+```
 
 ## Getting Started
 

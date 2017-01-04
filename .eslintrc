@@ -3,9 +3,6 @@
   "plugins": [
     "react"
   ],
-  "settings": {
-    "import/resolver": "webpack"
-  },
   "rules": {
     "no-extra-semi": 1,
     "no-multi-spaces": 2,

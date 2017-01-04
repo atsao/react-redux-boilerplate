@@ -13,6 +13,10 @@ const router = express.Router();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
+
+app.use('/api', router);
+require('./routes/routes.js')(router);
+
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('tiny'));
   app.use(require('webpack-dev-middleware')(compiler, {
@@ -27,17 +31,26 @@ if (process.env.NODE_ENV !== 'production') {
     watchOptions: {
       ignored: /node_modules/,
     },
+    historyApiFallback: true,
   }));
   app.use(require('webpack-hot-middleware')(compiler));
+  app.use('*', (req, res, next) => {
+    let entry = path.join(compiler.outputPath, 'index.html');
+    compiler.outputFileSystem.readFile(entry, (err, result) => {
+      if (err) {
+        return next(err);
+      }
+      res.set('content-type', 'text/html');
+      res.send(result);
+      res.end();
+    });
+  });
 } else {
-  app.use(express.static(path.resolve(__dirname, 'public')));
+  app.use(express.static(path.resolve(__dirname, '..', 'build')));
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '/public/index.html'));
+    res.sendFile(path.resolve(compiler.outputPath, 'index.html'));
   });
 }
-
-app.use('/api', router);
-require('./routes/routes.js')(router);
 
 app.listen(port, (err) => {
   /* eslint-disable */

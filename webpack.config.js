@@ -22,6 +22,8 @@ const paths = {
   publicPath: '/',
 };
 
+let cssLoaders = 'css?sourceMap!postcss';
+
 let config = {
   devtool: 'eval',
   entry: [paths.app.srcIndex],
@@ -53,7 +55,11 @@ let config = {
       {
         test: /\.css$/,
         exclude: null,
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss'),
+        loader: env === 'development' ? `style!${cssLoaders}` : ExtractTextPlugin.extract('style', cssLoaders),
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|eot|svg|ttf|woff|woff2)$/i,
+        loader: 'file',
       },
     ],
   },
@@ -68,7 +74,9 @@ let config = {
     fallback: paths.nodeModulesPath,
     modulesDirectories: [
       'node_modules',
-      'src',
+    ],
+    root: [
+      paths.app.src,
     ],
     extensions: [
       '',

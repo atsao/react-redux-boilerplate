@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import Root from '../components/Root'; // Root layout
-
+import Root from 'components/Root'; // Root layout
 import Welcome from 'modules/todos';
 
 export default (

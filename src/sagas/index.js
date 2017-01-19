@@ -1,8 +1,8 @@
-import { fork, takeLatest } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
+
+import { TodosActions } from '../data/todos';
 
 import InitSaga from './InitSaga';
-
-import { TodosActions } from 'data/todos';
 
 export default function* rootSaga () {
   //   yield [

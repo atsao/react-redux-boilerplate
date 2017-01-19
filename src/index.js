@@ -10,8 +10,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './rootReducer';
 import routes from './routes';
 import rootSaga from './sagas';
-
-import { TodosActions } from 'data/todos';
+import { TodosActions } from './data/todos';
 
 const middleware = routerMiddleware(browserHistory);
 const sagaMiddleware = createSagaMiddleware();

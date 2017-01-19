@@ -1,6 +1,6 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 
-import { TodosActions } from 'data/todos';
+import { TodosActions } from '../data/todos';
 
 const API = () => {
   return new Promise(resolve => {
@@ -26,5 +26,5 @@ function* fetchTasks (action) {
 // export default watcher;
 
 export default {
-  fetchTasks
+  fetchTasks,
 }

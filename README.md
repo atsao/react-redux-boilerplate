@@ -1,4 +1,4 @@
-# React-Redux Boilerplate (WIP)
+# React-Redux Boilerplate
 
 _Under Construction_
 
@@ -15,17 +15,24 @@ This version will utilize the features below. I have plans to create alternative
 * Node/Express
 * Babel, ES6 with linting
 * PostCSS
-* Webpack
+* Webpack 2
   * Hot Module Reload
 
 ## Application Organization
 
 ```
 src/
-  app/
-  features/
+  assets/
+    css/
+      src/
+      index.css
+    img/
+  components/
+  data/
+  modules/
+    [feature]/
   routes/
-  shared/
+  sagas/
   utils/
   index.js
   rootReducer.js

@@ -18,6 +18,8 @@
     "key-spacing": [2, {"afterColon": true}],
     "space-before-function-paren": [1, "always"],
     "keyword-spacing": 1,
+    "arrow-body-style": [1, "as-needed"],
+    "space-infix-ops": 1,
 
     "import/order": [1, {"newlines-between": "always"}],
 

@@ -21,7 +21,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('tiny'));
   app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: config.output.publicPath,
-    contentBase: config.output.contentBase,
+    // contentBase: config.output.contentBase,
     hot: true,
     quiet: false,
     stats: {

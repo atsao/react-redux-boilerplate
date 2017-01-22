@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 app.use('/api', router);
-require('./routes/routes.js')(router);
+require('./routes')(router);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname, '..', 'build')));

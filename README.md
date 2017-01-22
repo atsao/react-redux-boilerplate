@@ -2,7 +2,7 @@
 
 _Under Construction_
 
-Yet another React-Redux boilerplate? Yes! This one is based on my
+Yet another React-Redux boilerplate? Yes!
 
 ## Features
 
@@ -21,6 +21,12 @@ Yet another React-Redux boilerplate? Yes! This one is based on my
 ## Application Organization
 
 ```
+server/
+  config/
+    dev.js
+  routes/
+    index.js
+  index.js
 src/
   assets/
     css/
@@ -37,6 +43,7 @@ src/
   index.js
   index.html
   rootReducer.js
+test/
 ```
 
 ## Getting Started
@@ -50,4 +57,4 @@ To install dependencies:
 | `start`             | Serves app at http://localhost:5000. HMR enabled |
 | `build`             | Compiles app for production      |
 | `lint`              | Lint all `.js` and `.jsx` files      |
-| `lint:fix`          | Lint and fixall `.js` and `.jsx` files      |
+| `lint:fix`          | Lint and fix all `.js` and `.jsx` files      |

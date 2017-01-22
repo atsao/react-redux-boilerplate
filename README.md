@@ -2,9 +2,7 @@
 
 _Under Construction_
 
-Boilerplate template for react-redux projects.
-
-This version will utilize the features below. I have plans to create alternative templates that utilize other technologies.
+Yet another React-Redux boilerplate? Yes! This one is based on my
 
 ## Features
 
@@ -13,8 +11,10 @@ This version will utilize the features below. I have plans to create alternative
   * Reselect
   * Sagas
 * Node/Express
-* Babel, ES6 with linting
+* Babel, ES6
+* ESLint
 * PostCSS
+  * Autoprefixer
 * Webpack 2
   * Hot Module Reload
 
@@ -35,6 +35,7 @@ src/
   sagas/
   utils/
   index.js
+  index.html
   rootReducer.js
 ```
 
@@ -44,6 +45,9 @@ To install dependencies:
 
 `npm install`
 
-Then run:
-
-`npm start`
+| `npm run [script]`  | Description   |
+| -------------       |---------------|
+| `start`             | Serves app at http://localhost:5000. HMR enabled |
+| `build`             | Compiles app for production      |
+| `lint`              | Lint all `.js` and `.jsx` files      |
+| `lint:fix`          | Lint and fixall `.js` and `.jsx` files      |

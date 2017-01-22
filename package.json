@@ -5,10 +5,10 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "eslint \"**/*.js\" && mocha --require babel-register",
-    "lint": "eslint \"**/*.js\"",
-    "lint:fix": "eslint \"**/*.js\" --fix",
-    "build": "NODE_ENV=production webpack --colors --progress"
+    "build": "NODE_ENV=production webpack --profile --colors --progress",
+    "test": "eslint . && mocha --require babel-register",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -50,11 +50,11 @@
     "redux": "^3.6.0",
     "redux-actions": "^1.2.0",
     "redux-saga": "^0.14.0",
-    "redux-seamless-immutable": "^0.3.0",
     "reselect": "^2.5.4",
     "seamless-immutable": "^7.0.1",
     "style-loader": "^0.13.1",
-    "webpack": "^2.2.0"
+    "webpack": "^2.2.0",
+    "webpack-merge": "^2.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
@@ -74,5 +74,14 @@
     "sinon": "^1.17.6",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.14.0"
+  },
+  "browserslist": {
+    "production": [
+      "last 2 version",
+      "ie 9"
+    ],
+    "development": [
+      "last 1 version"
+    ]
   }
 }

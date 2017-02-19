@@ -2,6 +2,8 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const cssLoaders = require('./cssLoaders');
+
 let config = {};
 
 config.devtool = 'source-map';
@@ -9,6 +11,19 @@ config.devtool = 'source-map';
 config.output = {
   filename: '[name].[chunkhash].js',
 };
+
+config.module = {
+  rules: [
+    {
+      test: /\.css$/,
+      exclude: /node_modules/,
+      loaders: ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
+        loader: cssLoaders,
+      }),
+    },
+  ],
+}
 
 config.plugins = [
   new ExtractTextPlugin({

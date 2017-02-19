@@ -1,7 +1,9 @@
-import * as TodosActions from './actions';
+import { default as PostsActions } from './actionCreators';
+import { default as PostsActionTypes } from './actionTypes';
 import TodosReducer from './reducer';
 
 export {
-  TodosActions,
+  PostsActions,
+  PostsActionTypes,
   TodosReducer,
 };

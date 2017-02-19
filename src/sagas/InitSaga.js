@@ -1,30 +1,22 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
-import { TodosActions } from '../data/todos';
-
-const API = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      return resolve(['Clean car', 'Send letter', 'Take out trash']);
-    }, 1000);
-  });
-}
+import API from '../services';
+import { PostsActions, PostsActionTypes } from '../data/todos';
 
 function* fetchTasks (action) {
-  try {
-    const tasks = yield call(API);
-    yield put(TodosActions.tasksReceived(tasks));
-  } catch (error) {
-    yield put(TodosActions.tasksFetchFailed);
+  const response = yield call(API.fetchPosts);
+
+  if (response.ok) {
+    yield put(PostsActions.postsReceived(response.data));
+  } else {
+    console.error('no');
   }
 }
 
-// export function* watcher () {
-//   yield takeEvery(TodosActions.TASKS_FETCH_REQUEST, fetchTasks);
-// }
-//
-// export default watcher;
+function * watcher () {
+  yield takeEvery(PostsActionTypes.POSTS_FETCH_REQUEST, fetchTasks);
+}
 
 export default {
-  fetchTasks,
+  watcher,
 }

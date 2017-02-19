@@ -1,7 +1,7 @@
 import Immutable from 'seamless-immutable';
 import { normalize, Schema } from 'normalizr';
 
-import { TASKS_RECEIVED } from './actions';
+import { TASKS_RECEIVED } from './actionCreators';
 
 // Schema
 

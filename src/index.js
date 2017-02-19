@@ -10,11 +10,10 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './rootReducer';
 import routes from './routes';
 import rootSaga from './sagas';
-import { TodosActions } from './data/todos';
+import { PostsActions } from './data/todos';
 
 const middleware = routerMiddleware(browserHistory);
 const sagaMiddleware = createSagaMiddleware();
-
 const middlewares = [sagaMiddleware, middleware];
 
 if (process.env.NODE_ENV !== 'production') {
@@ -34,7 +33,7 @@ const history = syncHistoryWithStore(
 );
 
 sagaMiddleware.run(rootSaga);
-store.dispatch(TodosActions.tasksFetchRequest());
+store.dispatch(PostsActions.postsFetchRequest());
 
 ReactDOM.render(
   <Provider store={ store }>

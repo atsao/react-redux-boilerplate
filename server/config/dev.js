@@ -10,15 +10,11 @@ const dev = (app) => {
   app.use(morgan('tiny'));
   app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: config.output.publicPath,
-    hot: true,
-    quiet: false,
-    stats: {
-      colors: true,
-    },
     noInfo: true,
-    watchOptions: {
-      ignored: /node_modules/,
-    },
+    quiet: false,
+    hot: true,
+    stats: { colors: true },
+    watchOptions: { ignored: /node_modules/ },
     historyApiFallback: true,
   }));
   app.use(require('webpack-hot-middleware')(compiler));

@@ -15,8 +15,8 @@ html, body {
 }
 
 .example {
-  display: flex;
-  transition: all .5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  padding: 20px;
+  text-transform: uppercase;
 }

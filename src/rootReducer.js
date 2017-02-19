@@ -6,6 +6,6 @@ import { TodosReducer } from './data/todos';
 
 export default combineReducers({
   routing: routerReducer,
-  todos: TodosReducer,
+  // todos: TodosReducer,
   // ui,
 });

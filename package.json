@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/atsao/react-redux-boilerplate#readme",
   "dependencies": {
+    "apisauce": "^0.10.0",
     "autoprefixer": "^6.6.0",
     "axios": "^0.15.3",
     "babel-core": "^6.14.0",
@@ -50,6 +51,7 @@
     "redux": "^3.6.0",
     "redux-actions": "^1.2.0",
     "redux-saga": "^0.14.0",
+    "reduxsauce": "^0.4.1",
     "reselect": "^2.5.4",
     "seamless-immutable": "^7.0.1",
     "style-loader": "^0.13.1",

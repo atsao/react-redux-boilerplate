@@ -1,1 +1,0 @@
-export const GET_SAMPLE_REQUEST = 'GET_SAMPLE_REQUEST';

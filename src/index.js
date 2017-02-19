@@ -1,22 +1,41 @@
 import 'babel-polyfill';
 import React from 'react';
-import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
+import createSagaMiddleware from 'redux-saga';
 
-import rootReducer from './reducers';
+import rootReducer from './rootReducer';
 import routes from './routes';
+import rootSaga from './sagas';
+import { PostsActions } from './data/todos';
 
 const middleware = routerMiddleware(browserHistory);
-const createStoreWithMiddleware = applyMiddleware(thunk, middleware)(createStore);
-const store = createStoreWithMiddleware(rootReducer);
+const sagaMiddleware = createSagaMiddleware();
+const middlewares = [sagaMiddleware, middleware];
 
-const history = syncHistoryWithStore(browserHistory, store, { adjustUrlOnReplay: true });
+if (process.env.NODE_ENV !== 'production') {
+  const createLogger = require('redux-logger');
+  const logger = createLogger();
+  middlewares.push(logger);
+}
 
-render(
+const store = createStore(
+  rootReducer,
+  compose(applyMiddleware(...middlewares))
+);
+
+const history = syncHistoryWithStore(
+  browserHistory,
+  store,
+);
+
+sagaMiddleware.run(rootSaga);
+store.dispatch(PostsActions.postsFetchRequest());
+
+ReactDOM.render(
   <Provider store={ store }>
     <Router history={ history } routes={ routes } />
   </Provider>

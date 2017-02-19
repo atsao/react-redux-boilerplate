@@ -4,15 +4,22 @@
     "react"
   ],
   "rules": {
-    "no-extra-semi": "warn",
+    "no-extra-semi": 1,
+    "no-multi-spaces": 2,
     "no-multiple-empty-lines": [1, {"max": 1, "maxEOF": 1}],
-    "no-trailing-spaces": "warn",
+    "no-trailing-spaces": 1,
 
+    "spaced-comment": [1, "always"],
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "quotes": [1, "single"],
     "comma-dangle": [1, "always-multiline"],
     "eol-last": [1, "always"],
     "jsx-quotes": [1, "prefer-double"],
     "key-spacing": [2, {"afterColon": true}],
     "space-before-function-paren": [1, "always"],
+    "keyword-spacing": 1,
+    "arrow-body-style": [1, "as-needed"],
+    "space-infix-ops": 1,
 
     "import/order": [1, {"newlines-between": "always"}],
 

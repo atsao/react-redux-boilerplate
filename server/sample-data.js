@@ -7,7 +7,7 @@ const generatePosts = () => {
     let post = {
       id: faker.random.uuid(),
       post_date: faker.date.past(),
-      title: faker.lorem.words(Math.floor(Math.random() * 5)),
+      title: faker.lorem.words(Math.ceil(Math.random() * 5)),
       author: {
         id: faker.random.uuid(),
         username: faker.internet.userName(),

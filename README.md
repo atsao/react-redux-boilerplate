@@ -48,9 +48,7 @@ test/
 
 ## Getting Started
 
-To install dependencies:
-
-`npm install`
+To install dependencies using [Yarn](https://github.com/yarnpkg/yarn), run `yarn` or run `npm install`.
 
 | `npm run [script]`  | Description   |
 | -------------       |---------------|

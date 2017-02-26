@@ -2,37 +2,18 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
 import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
-import createSagaMiddleware from 'redux-saga';
+import { syncHistoryWithStore } from 'react-router-redux';
 
-import rootReducer from './rootReducer';
+import configureStore from './store/configureStore';
 import routes from './routes';
-import rootSaga from './sagas';
-import { PostsActions } from './data/todos';
+import { PostsActions } from './redux/posts';
 
-const middleware = routerMiddleware(browserHistory);
-const sagaMiddleware = createSagaMiddleware();
-const middlewares = [sagaMiddleware, middleware];
-
-if (process.env.NODE_ENV !== 'production') {
-  const createLogger = require('redux-logger');
-  const logger = createLogger();
-  middlewares.push(logger);
-}
-
-const store = createStore(
-  rootReducer,
-  compose(applyMiddleware(...middlewares))
-);
-
+const store = configureStore();
 const history = syncHistoryWithStore(
   browserHistory,
   store,
 );
-
-sagaMiddleware.run(rootSaga);
 store.dispatch(PostsActions.postsFetchRequest());
 
 ReactDOM.render(

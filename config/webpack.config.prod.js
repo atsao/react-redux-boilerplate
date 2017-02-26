@@ -18,8 +18,8 @@ config.module = {
       test: /\.css$/,
       exclude: /node_modules/,
       loaders: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: cssLoaders,
+        fallback: 'style-loader',
+        use: cssLoaders,
       }),
     },
   ],

@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
 import API from '../services';
-import { PostsActions, PostsActionTypes } from '../data/todos';
+import { PostsActions, PostsActionTypes } from '../redux/posts';
 
 function* fetchTasks (action) {
   const response = yield call(API.fetchPosts);
@@ -9,7 +9,8 @@ function* fetchTasks (action) {
   if (response.ok) {
     yield put(PostsActions.postsReceived(response.data));
   } else {
-    console.error('no');
+    const { status, problem, data: { message } } = response;
+    yield put(PostsActions.postsFetchFailed({ status, problem, message }));
   }
 }
 

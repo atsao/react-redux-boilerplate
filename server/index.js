@@ -16,13 +16,13 @@ app.use(bodyParser.json());
 app.use('/api', router);
 require('./routes')(router);
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'production') {
+  require('./config/dev.js')(app);
+} else {
   app.use(express.static(path.resolve(__dirname, '..', 'build')));
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(compiler.outputPath, 'index.html'));
   });
-} else {
-  require('./config/dev.js')(app);
 }
 
 app.listen(port, (err) => {

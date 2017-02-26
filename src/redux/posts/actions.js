@@ -1,16 +1,11 @@
-// import { createAction } from 'redux-actions';
-import { createActions } from 'reduxsauce';
-
-import Types from './actionTypes';
+import Types from './types';
 
 const postsFetchRequest = () => ({ type: Types.POSTS_FETCH_REQUEST });
 const postsReceived = (payload) => ({ type: Types.POSTS_RECEIVED, payload });
 const postsFetchFailed = (error) => ({ type: Types.POSTS_FETCH_FAILED, error });
 
-const { Creators } = createActions({
+export default {
   postsFetchRequest,
   postsReceived,
   postsFetchFailed,
-});
-
-export default Creators;
+};

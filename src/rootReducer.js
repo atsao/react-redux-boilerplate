@@ -1,11 +1,8 @@
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { combineReducers, routerReducer } from 'redux-seamless-immutable';
 
-import { TodosReducer } from './data/todos';
-// import ui from './uiReducer';
+import { PostsReducer } from './redux/posts';
 
 export default combineReducers({
   routing: routerReducer,
-  // todos: TodosReducer,
-  // ui,
+  data: PostsReducer,
 });

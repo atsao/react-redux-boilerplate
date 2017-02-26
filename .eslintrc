@@ -23,6 +23,7 @@
 
     "import/order": [1, {"newlines-between": "always"}],
 
-    "react/jsx-curly-spacing": [1, "always"]
+    "react/jsx-curly-spacing": [1, "always"],
+    "react/prop-types": 1
   }
 }

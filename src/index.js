@@ -14,7 +14,7 @@ const history = syncHistoryWithStore(
   browserHistory,
   store,
 );
-store.dispatch(PostsActions.postsFetchRequest());
+store.dispatch(PostsActions.requestPosts());
 
 ReactDOM.render(
   <Provider store={ store }>

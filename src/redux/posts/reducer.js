@@ -41,7 +41,7 @@ export const receive = (state, action) => {
 }
 
 export const HANDLERS = {
-  [Types.POSTS_FETCH_REQUEST]: reset,
+  [Types.POSTS_REQUEST]: reset,
   [Types.POSTS_FETCH_REQUEST_FAILED]: reset,
   [Types.POSTS_RECEIVED]: receive,
 }

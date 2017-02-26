@@ -1,11 +1,11 @@
 import Types from './types';
 
-const postsFetchRequest = () => ({ type: Types.POSTS_FETCH_REQUEST });
-const postsReceived = (payload) => ({ type: Types.POSTS_RECEIVED, payload });
-const postsFetchFailed = (error) => ({ type: Types.POSTS_FETCH_FAILED, error });
+const requestPosts = () => ({ type: Types.POSTS_REQUEST });
+const receivePosts = (payload) => ({ type: Types.POSTS_RECEIVED, payload });
+const receivePostsFailed = (error) => ({ type: Types.POSTS_RECEIVED_FAILURE, error });
 
 export default {
-  postsFetchRequest,
-  postsReceived,
-  postsFetchFailed,
+  requestPosts,
+  receivePosts,
+  receivePostsFailed,
 };

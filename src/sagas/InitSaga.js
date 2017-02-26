@@ -7,15 +7,15 @@ function* fetchTasks (action) {
   const response = yield call(API.fetchPosts);
 
   if (response.ok) {
-    yield put(PostsActions.postsReceived(response.data));
+    yield put(PostsActions.receivePosts(response.data));
   } else {
     const { status, problem, data: { message } } = response;
-    yield put(PostsActions.postsFetchFailed({ status, problem, message }));
+    yield put(PostsActions.receivePostsFailed({ status, problem, message }));
   }
 }
 
 function * watcher () {
-  yield takeEvery(PostsActionTypes.POSTS_FETCH_REQUEST, fetchTasks);
+  yield takeEvery(PostsActionTypes.POSTS_REQUEST, fetchTasks);
 }
 
 export default {

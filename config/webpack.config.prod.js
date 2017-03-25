@@ -23,14 +23,16 @@ config.module = {
       }),
     },
   ],
-}
+};
 
 config.plugins = [
   new ExtractTextPlugin({
     filename: 'styles.[chunkhash].css',
     allChunks: true,
   }),
-  new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  }),
   new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
   new webpack.LoaderOptionsPlugin({
     minimize: true,

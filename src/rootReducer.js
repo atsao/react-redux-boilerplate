@@ -1,4 +1,5 @@
-import { combineReducers, routerReducer } from 'redux-seamless-immutable';
+import { combineReducers } from 'redux-seamless-immutable';
+import { routerReducer } from 'react-router-redux';
 
 import { PostsReducer } from './redux/posts';
 

@@ -7,12 +7,13 @@ Yet another React-Redux boilerplate? Yes!
 ## Features
 
 * React
+  * React Router (+ Redux)
 * Redux
   * Reselect
   * Sagas
 * Node/Express
 * Babel, ES6
-* ESLint
+* ESLint + PrettierJS
 * PostCSS
   * Autoprefixer
 * Webpack 2
@@ -34,10 +35,9 @@ src/
       index.css
     img/
   components/
-  data/
   modules/
     [feature]/
-  routes/
+  redux/
   sagas/
   utils/
   index.js

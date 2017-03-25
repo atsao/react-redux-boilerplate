@@ -1,7 +1,6 @@
 // Development config
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 const cssLoaders = require('./cssLoaders');
 
@@ -20,13 +19,10 @@ config.module = {
     {
       test: /\.css$/,
       exclude: /node_modules/,
-      use: [
-        'style-loader',
-        ...cssLoaders,
-      ],
+      use: ['style-loader', ...cssLoaders],
     },
   ],
-}
+};
 
 config.plugins = [
   new ExtractTextPlugin({
@@ -35,7 +31,6 @@ config.plugins = [
   }),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
-  new ProgressBarPlugin({ clear: false }),
-]
+];
 
 module.exports = config;

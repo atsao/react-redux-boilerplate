@@ -15,7 +15,7 @@ const generatePosts = () => {
       body: faker.lorem.paragraph(),
       tags: faker.lorem.words().split(' '),
       comments: [],
-    }
+    };
 
     for (let j = 0; j < Math.floor(Math.random() * 4); j++) {
       let comment = {
@@ -26,12 +26,12 @@ const generatePosts = () => {
           username: faker.internet.userName(),
         },
         post_date: faker.date.recent(),
-      }
+      };
       post.comments.push(comment);
     }
     samplePosts.push(post);
   }
-}
+};
 
 generatePosts();
 

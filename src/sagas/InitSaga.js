@@ -3,7 +3,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import API from '../services';
 import { PostsActions, PostsActionTypes } from '../redux/posts';
 
-function* fetchTasks (action) {
+function* fetchTasks(action) {
   const response = yield call(API.fetchPosts);
 
   if (response.ok) {
@@ -14,10 +14,10 @@ function* fetchTasks (action) {
   }
 }
 
-function * watcher () {
+function* watcher() {
   yield takeEvery(PostsActionTypes.POSTS_REQUEST, fetchTasks);
 }
 
 export default {
   watcher,
-}
+};

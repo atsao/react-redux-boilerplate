@@ -1,7 +1,8 @@
 {
   "extends": ["react-app"],
   "plugins": [
-    "react"
+    "react",
+    "prettier"
   ],
   "rules": {
     "no-extra-semi": 1,
@@ -16,14 +17,15 @@
     "eol-last": [1, "always"],
     "jsx-quotes": [1, "prefer-double"],
     "key-spacing": [2, {"afterColon": true}],
-    "space-before-function-paren": [1, "always"],
     "keyword-spacing": 1,
     "arrow-body-style": [1, "as-needed"],
     "space-infix-ops": 1,
+    "object-curly-spacing": [1, "always"],
 
     "import/order": [1, {"newlines-between": "always"}],
 
-    "react/jsx-curly-spacing": [1, "always"],
-    "react/prop-types": 1
+    "react/prop-types": 1,
+
+    "prettier/prettier": [2, {"trailingComma": "es5", "singleQuote": true, "bracketSpacing": true}]
   }
 }

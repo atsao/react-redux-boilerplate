@@ -12,15 +12,8 @@ config.output = {
 };
 
 config.resolve = {
-  modules: [
-    paths.app.src,
-    paths.nodeModules,
-    'node_modules',
-  ],
-  extensions: [
-    '.js',
-    '.json',
-  ],
+  modules: [paths.app.src, paths.nodeModules, 'node_modules'],
+  extensions: ['.js', '.json'],
 };
 
 config.module = {
@@ -34,10 +27,7 @@ config.module = {
     {
       test: /\.(js|jsx)?$/,
       exclude: /node_modules/,
-      use: [
-        'react-hot-loader',
-        'babel-loader',
-      ],
+      use: ['react-hot-loader', 'babel-loader'],
       include: paths.app.src,
     },
   ],
@@ -48,6 +38,6 @@ config.plugins = [
     inject: true,
     template: paths.app.srcHtml,
   }),
-]
+];
 
 module.exports = config;

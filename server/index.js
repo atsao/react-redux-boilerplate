@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-app.listen(port, (err) => {
+app.listen(port, err => {
   if (err) return console.error(err);
   console.log('App is listening on', port); // eslint-disable-line
 });

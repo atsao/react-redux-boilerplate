@@ -38,6 +38,7 @@ src/
   modules/
     [feature]/
   redux/
+  routes/
   sagas/
   utils/
   index.js

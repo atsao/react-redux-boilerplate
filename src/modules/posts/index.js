@@ -3,11 +3,22 @@ import { connect } from 'react-redux';
 
 class Posts extends Component {
   render() {
-    const { posts: { postsById, postsList } } = this.props;
+    const { posts: { postsById, postsList }, usersById } = this.props;
 
     return (
       <div>
-        {postsList.map((id, i) => <h1 key={i}>{postsById[id].title}</h1>)}
+        {postsList.map((id, i) => {
+          const post = postsById[id];
+          const { author } = post;
+
+          return (
+            <div key={i}>
+              <h1>{post.title}</h1>
+              <p>by {usersById[author].username}</p>
+              <p>{post.body}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }
@@ -15,10 +26,12 @@ class Posts extends Component {
 
 Posts.propTypes = {
   posts: PropTypes.object,
+  usersById: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({
   posts: state.data.posts,
+  usersById: state.data.users.usersById,
 });
 
 export default connect(mapStateToProps)(Posts);

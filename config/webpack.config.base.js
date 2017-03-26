@@ -4,7 +4,7 @@ const paths = require('./paths');
 
 let config = {};
 
-config.entry = [paths.app.srcIndex];
+config.entry = ['babel-polyfill', 'react-hot-loader/patch', paths.app.srcIndex];
 
 config.output = {
   path: paths.app.build,
@@ -27,7 +27,7 @@ config.module = {
     {
       test: /\.(js|jsx)?$/,
       exclude: /node_modules/,
-      use: ['react-hot-loader', 'babel-loader'],
+      use: ['babel-loader'],
       include: paths.app.src,
     },
   ],

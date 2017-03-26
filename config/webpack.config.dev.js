@@ -31,6 +31,7 @@ config.plugins = [
   }),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.NamedModulesPlugin(),
 ];
 
 module.exports = config;

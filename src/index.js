@@ -2,13 +2,13 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, Switch } from 'react-router';
+import { Router } from 'react-router';
 import createHistory from 'history/createBrowserHistory';
 import { syncHistoryWithStore } from 'react-router-redux';
+import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store/configureStore';
-import Root from './components/Root'; // Root layout
-import Posts from './modules/posts';
+import routes from './routes';
 import { PostsActions } from './redux/posts';
 
 const history = createHistory();
@@ -17,16 +17,24 @@ const synchedHistory = syncHistoryWithStore(history, store);
 
 store.dispatch(PostsActions.requestPosts());
 
-ReactDOM.render(
+const app = (
   <Provider store={store}>
     <Router history={synchedHistory}>
-      <div>
-        <Route component={Root} />
-        <Switch>
-          <Route exact path="/" component={Posts} />
-        </Switch>
-      </div>
+      {routes}
     </Router>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 );
+
+const render = () =>
+  ReactDOM.render(
+    <AppContainer>
+      {app}
+    </AppContainer>,
+    document.getElementById('root')
+  );
+
+render();
+
+if (module.hot) {
+  module.hot.accept('./routes', () => render());
+}

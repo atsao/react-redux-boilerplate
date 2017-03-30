@@ -1,33 +1,35 @@
-# React-Redux Boilerplate ![build](https://travis-ci.org/atsao/react-redux-boilerplate.svg?branch=master)
+# React-Redux Boilerplate
+
+![build](https://travis-ci.org/atsao/react-redux-boilerplate.svg?branch=master) [![dependencies Status](https://david-dm.org/atsao/react-redux-boilerplate/status.svg)](https://david-dm.org/atsao/react-redux-boilerplate) [![devDependencies Status](https://david-dm.org/atsao/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/atsao/react-redux-boilerplate?type=dev)
 
 _Under Construction_
 
-Yet another React-Redux boilerplate? Yes!
+This boilerplate is currently in development and is subject to change.
 
 ## Features
 
 * React
-  * react-router v4.0.x
+  * react-router v4
 * Redux
   * redux-saga
   * seamless-immutable
 * Node/Express
 * Babel, ES6
 * ESLint + PrettierJS
-* PostCSS
-  * Autoprefixer
 * Webpack 2
+  * CSS Modules
+    * PostCSS with Autoprefixer
   * Hot Module Reload
 
-## Application Organization
+## Boilerplate Organization
+
+Application files are organized by `modules`, where each feature folder is concerned only with its relevant components, while `redux`-related code is separated in its own folder.
+
+The `components` folder is meant for shareable components across the app (e.g., buttons, layouts, etc.).
+
+You are free to re-organize as you'd like.
 
 ```
-server/
-  config/
-    dev.js
-  routes/
-    index.js
-  index.js
 src/
   assets/
     css/
@@ -38,6 +40,7 @@ src/
   modules/
     [feature]/
   redux/
+    [feature]/
   routes/
   sagas/
   utils/
@@ -45,6 +48,17 @@ src/
   index.html
   rootReducer.js
 test/
+```
+
+This boilerplate also includes a Node/Express server to serve your application files.
+
+```
+server/
+  config/
+    dev.js
+  routes/
+    index.js
+  index.js
 ```
 
 ## Getting Started

@@ -13,7 +13,7 @@ class Posts extends Component {
 
           return (
             <div key={i}>
-              <h1>{post.title}</h1>
+              <h2>{post.title}</h2>
               <p>by {usersById[author].username}</p>
               <p>{post.body}</p>
             </div>

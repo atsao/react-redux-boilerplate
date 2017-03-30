@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 
-import '../assets/css/index.css';
+import styles from '../assets/css/index.css';
 
 class Root extends Component {
   render() {
     return (
-      <div className="wrapper">
-        <h1 className="example">Welcome to App</h1>
+      <div className={styles.wrapper}>
+        <h1 className={styles.example}>Welcome to App</h1>
         {this.props.children}
       </div>
     );

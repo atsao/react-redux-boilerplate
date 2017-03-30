@@ -1,4 +1,4 @@
-# React-Redux Boilerplate
+# React-Redux Boilerplate ![build](https://travis-ci.org/atsao/react-redux-boilerplate.svg?branch=master)
 
 _Under Construction_
 
@@ -7,10 +7,10 @@ Yet another React-Redux boilerplate? Yes!
 ## Features
 
 * React
-  * React Router (+ Redux)
+  * react-router v4.0.x
 * Redux
-  * Reselect
-  * Sagas
+  * redux-saga
+  * seamless-immutable
 * Node/Express
 * Babel, ES6
 * ESLint + PrettierJS

@@ -1,0 +1,78 @@
+.posts-container {
+  padding: 0 24px;
+}
+
+.post {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.post-sidebar {
+  display: inline-block;
+  width: 50px;
+}
+
+.post-body {
+  flex-grow: 1;
+  padding: 0 16px;
+}
+
+.post-subtitle {
+  font-size: 0.9em;
+  color: #777;
+  margin: 8px 0;;
+}
+
+.post-subtitle p {
+  margin: 0;
+}
+
+.date-block {
+  text-align: center;
+  width: 50px;
+}
+
+.date-block > div {
+  padding: 4px 0;
+}
+
+.date-month {
+  background: #c62020;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.date-day {
+  border-color: #f1f1f1;
+  border-style: solid;
+  border-width: 0 1px;
+  font-size: 2em;
+  font-weight: 800;
+}
+
+.date-year {
+  border-color: #f1f1f1;
+  border-style: solid;
+  border-width: 0 1px 1px;
+  color: #777;
+  font-size: 0.9em;
+}
+
+.tag {
+  background: #eee;
+  border-radius: 3px;
+  color: #777;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-right: 8px;
+  padding: 6px 8px;
+}
+
+.post h2 {
+  margin: 0;
+}
+
+.post p {
+  line-height: 1.5;
+}

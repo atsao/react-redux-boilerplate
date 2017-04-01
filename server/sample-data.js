@@ -6,7 +6,7 @@ const generatePosts = () => {
   for (let i = 0; i < 5; i++) {
     let post = {
       id: faker.random.uuid(),
-      post_date: faker.date.past(),
+      postDate: faker.date.past(),
       title: faker.lorem.words(Math.ceil(Math.random() * 5)),
       author: {
         id: faker.random.uuid(),
@@ -25,12 +25,15 @@ const generatePosts = () => {
           id: faker.random.uuid(),
           username: faker.internet.userName(),
         },
-        post_date: faker.date.recent(),
+        postDate: faker.date.recent(),
       };
       post.comments.push(comment);
     }
     samplePosts.push(post);
   }
+  samplePosts.sort(
+    (a, b) => +(a.postDate < b.postDate) || +(a.postDate === b.postDate) - 1
+  );
 };
 
 generatePosts();

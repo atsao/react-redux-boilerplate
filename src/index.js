@@ -2,26 +2,24 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
-import createHistory from 'history/createBrowserHistory';
-import { syncHistoryWithStore } from 'react-router-redux';
+import createBrowserHistory from 'history/createBrowserHistory';
+import { ConnectedRouter } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store/configureStore';
 import routes from './routes';
 import { PostsActions } from './redux/posts';
 
-const history = createHistory();
+const history = createBrowserHistory();
 const store = configureStore(history);
-const synchedHistory = syncHistoryWithStore(history, store);
 
 store.dispatch(PostsActions.requestPosts());
 
 const app = (
   <Provider store={store}>
-    <Router history={synchedHistory}>
+    <ConnectedRouter history={history}>
       {routes}
-    </Router>
+    </ConnectedRouter>
   </Provider>
 );
 

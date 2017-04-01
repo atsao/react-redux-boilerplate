@@ -2,14 +2,15 @@
 
 ![build](https://travis-ci.org/atsao/react-redux-boilerplate.svg?branch=master) [![dependencies Status](https://david-dm.org/atsao/react-redux-boilerplate/status.svg)](https://david-dm.org/atsao/react-redux-boilerplate) [![devDependencies Status](https://david-dm.org/atsao/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/atsao/react-redux-boilerplate?type=dev)
 
-_Under Construction_
+Yet another boilerplate? Yes! I put this together to make it easier for myself to deploy modern React-Redux applications quicker. Feel free to use as you wish.
 
-This boilerplate is currently in development and is subject to change.
+Included is a barebones app to demonstrate routing and sagas.
 
 ## Features
 
 * React
-  * react-router v4
+  * react-router-dom v4
+  * react-router-redux v5 (beta)
 * Redux
   * redux-saga
   * seamless-immutable
@@ -20,6 +21,17 @@ This boilerplate is currently in development and is subject to change.
   * CSS Modules
     * PostCSS with Autoprefixer
   * Hot Module Reload
+
+## Getting Started
+
+To install dependencies using [Yarn](https://github.com/yarnpkg/yarn), run `yarn` or run `npm install`.
+
+| `yarn run [script]`  | Description   |
+| -------------       |---------------|
+| `start`             | Serves app at http://localhost:5000. HMR enabled |
+| `build`             | Compiles app for production      |
+| `lint`              | Lint all `.js` and `.jsx` files      |
+| `lint:fix`          | Lint and fix all `.js` and `.jsx` files      |
 
 ## Boilerplate Organization
 
@@ -34,7 +46,7 @@ src/
   assets/
     css/
       src/
-      index.css
+        [_[css].css]
     img/
   components/
   modules/
@@ -52,6 +64,8 @@ test/
 
 This boilerplate also includes a Node/Express server to serve your application files.
 
+Note: included is a `sample-data.js` file for demo purposes.
+
 ```
 server/
   config/
@@ -61,13 +75,13 @@ server/
   index.js
 ```
 
-## Getting Started
+## Example Application
 
-To install dependencies using [Yarn](https://github.com/yarnpkg/yarn), run `yarn` or run `npm install`.
+The development of this boilerplate involved creating a sample application that retrieves blog posts from a server.
 
-| `npm run [script]`  | Description   |
-| -------------       |---------------|
-| `start`             | Serves app at http://localhost:5000. HMR enabled |
-| `build`             | Compiles app for production      |
-| `lint`              | Lint all `.js` and `.jsx` files      |
-| `lint:fix`          | Lint and fix all `.js` and `.jsx` files      |
+In the future, I may include the example as a separate folder or repo.
+
+## To Do
+
+* Tests
+* Decouple example from boilerplate

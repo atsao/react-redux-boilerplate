@@ -1,0 +1,13 @@
+.welcome-text {
+  background: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin: 24px auto;
+  width: 60%;
+}
+
+.welcome-text p {
+  line-height: 1.5;
+  margin: 0;
+}

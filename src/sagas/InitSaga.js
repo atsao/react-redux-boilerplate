@@ -1,7 +1,7 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects'; // eslint-disable-line
 
-import API from '../services';
 import { PostsActions, PostsActionTypes } from '../redux/posts';
+import API from '../services';
 
 function* fetchTasks(action) {
   const response = yield call(API.fetchPosts);

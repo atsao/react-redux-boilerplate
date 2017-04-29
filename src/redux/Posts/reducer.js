@@ -44,8 +44,8 @@ export const receive = (state, action) => {
 
 export const HANDLERS = {
   [Types.POSTS_REQUEST]: reset,
-  [Types.POSTS_FETCH_REQUEST_FAILED]: reset,
   [Types.POSTS_RECEIVED]: receive,
+  [Types.POSTS_RECEIVED_FAILURE]: reset,
 };
 
 export default createReducer(INITIAL_STATE, HANDLERS);

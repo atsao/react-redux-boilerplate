@@ -1,6 +1,6 @@
 # React-Redux Boilerplate
 
-![build](https://travis-ci.org/atsao/react-redux-boilerplate.svg?branch=master) [![dependencies Status](https://david-dm.org/atsao/react-redux-boilerplate/status.svg)](https://david-dm.org/atsao/react-redux-boilerplate) [![devDependencies Status](https://david-dm.org/atsao/react-redux-boilerplate/dev-status.svg)](https://david-dm.org/atsao/react-redux-boilerplate?type=dev)
+[![Build Status](https://travis-ci.org/atsao/react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/atsao/react-redux-boilerplate) [![Dependency Status](https://gemnasium.com/badges/github.com/atsao/react-redux-boilerplate.svg)](https://gemnasium.com/github.com/atsao/react-redux-boilerplate)
 
 Yet another boilerplate? Yes! I put this together to make it easier for myself to deploy modern React-Redux applications quicker. Feel free to use as you wish.
 

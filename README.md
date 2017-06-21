@@ -17,7 +17,7 @@ Included is a barebones app to demonstrate routing and sagas.
 * Node/Express
 * Babel, ES6
 * ESLint + PrettierJS
-* Webpack 2
+* Webpack 3
   * CSS Modules
     * PostCSS with Autoprefixer
   * Hot Module Reload

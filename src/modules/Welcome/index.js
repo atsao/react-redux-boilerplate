@@ -9,7 +9,9 @@ class Welcome extends Component {
         <div className={styles['welcome-text']}>
           <h3>Welcome</h3>
           <p>
-            Thanks for using this boilerplate. You can see a demonstration of the techs used in this scaffold, such as sagas and routing. See an example route by clicking Posts above.
+            Thanks for using this boilerplate. You can see a demonstration of
+            the techs used in this scaffold, such as sagas and routing. See an
+            example route by clicking Posts above.
           </p>
         </div>
       </div>

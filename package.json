@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "NODE_ENV=production webpack --profile --colors --progress",
-    "test": "jest --watch",
+    "test": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

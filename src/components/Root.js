@@ -1,34 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 
+import Nav from './Nav';
 import styles from './Root.css';
+import '../assets/css/index.css';
 
-class Root extends Component {
+export class Root extends Component {
   render() {
     return (
       <div>
         <div className={styles.header}>
-          <h1 className={styles['main-header']}>
-            react-redux-boilerplate
-          </h1>
-          <nav className={styles.nav}>
-            <NavLink
-              exact
-              to="/"
-              className={`${styles['btn']} ${styles['btn-ghost']}`}
-              activeClassName={styles['selected']}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/posts"
-              className={`${styles['btn']} ${styles['btn-ghost']}`}
-              activeClassName={styles['selected']}
-            >
-              Posts
-            </NavLink>
-          </nav>
+          <h1 className={styles['main-header']}>react-redux-boilerplate</h1>
+          <Nav />
         </div>
         {this.props.children}
       </div>

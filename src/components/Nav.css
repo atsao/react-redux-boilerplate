@@ -1,0 +1,9 @@
+@import '_sample';
+
+.nav {
+  margin-top: 8px;
+}
+
+.nav a {
+  margin-right: 8px;
+}

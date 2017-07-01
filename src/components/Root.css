@@ -1,28 +1,3 @@
-@import '_sample';
-
-body {
-  font: 14px/1 Helvetica Neue, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.nav {
-  margin-top: 8px;
-}
-
-.nav a {
-  margin-right: 8px;
-}
-
 .header {
   background: #444;
   color: #fff;

@@ -47,6 +47,7 @@ config.plugins = [
     minimize: true,
     sourceMap: true,
   }),
+  new webpack.optimize.ModuleConcatenationPlugin(),
 ];
 
 module.exports = config;

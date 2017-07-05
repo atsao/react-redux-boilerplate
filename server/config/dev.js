@@ -7,7 +7,7 @@ const config = require('../../webpack.config');
 const compiler = webpack(config);
 
 const dev = app => {
-  app.use(morgan('tiny'));
+  app.use(morgan('dev'));
   app.use(
     require('webpack-dev-middleware')(compiler, {
       publicPath: config.output.publicPath,

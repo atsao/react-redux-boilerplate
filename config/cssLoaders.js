@@ -1,6 +1,7 @@
-const identName = process.env.NODE_ENV !== 'production'
-  ? '[path][name]__[local]___[hash:base64:5]'
-  : '[hash:base64:5]';
+const identName =
+  process.env.NODE_ENV !== 'production'
+    ? '[path][name]__[local]___[hash:base64:5]'
+    : '[hash:base64:5]';
 
 const cssLoaders = [
   {

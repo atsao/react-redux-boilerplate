@@ -1,11 +1,11 @@
 {
   "name": "react-redux-boilerplate",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Boilerplate",
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "build": "NODE_ENV=production webpack --profile --colors --progress",
+    "build": "webpack -p --profile --colors --progress",
     "test": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint .",

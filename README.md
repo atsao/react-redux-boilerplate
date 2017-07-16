@@ -33,6 +33,12 @@ To install dependencies using [Yarn](https://github.com/yarnpkg/yarn), run `yarn
 | `lint`              | Lint all `.js` and `.jsx` files      |
 | `lint:fix`          | Lint and fix all `.js` and `.jsx` files      |
 
+#### Node
+
+This repo is compatible with Node version `8.1.4`.
+
+If you are aware of past versions that work, please raise a PR and I will create a list.
+
 ## Boilerplate Organization
 
 Application files are organized by `modules`, where each feature folder is concerned only with its relevant components, while `redux`-related code is separated in its own folder.

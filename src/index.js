@@ -8,7 +8,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store/configureStore';
 import routes from './routes';
-import { PostsActions } from './redux/posts';
+import { PostsActions } from './redux/Posts';
 
 const history = createBrowserHistory();
 const store = configureStore(history);

@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects'; // eslint-disable-line
 
-import { PostsActions, PostsActionTypes } from '../redux/posts';
+import { PostsActions, PostsActionTypes } from '../redux/Posts';
 import API from '../services';
 
 function* fetchTasks(action) {

@@ -17,17 +17,13 @@ store.dispatch(PostsActions.requestPosts());
 
 const app = (
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      {routes}
-    </ConnectedRouter>
+    <ConnectedRouter history={history}>{routes}</ConnectedRouter>
   </Provider>
 );
 
 const render = () =>
   ReactDOM.render(
-    <AppContainer>
-      {app}
-    </AppContainer>,
+    <AppContainer>{app}</AppContainer>,
     document.getElementById('root')
   );
 

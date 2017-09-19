@@ -7,11 +7,11 @@ import styles from './styles.css';
 
 class Posts extends Component {
   _renderTags = tags =>
-    tags.map((tag, i) =>
+    tags.map((tag, i) => (
       <span key={i} className={styles.tag}>
         {tag}
       </span>
-    );
+    ));
 
   _renderDate = date => {
     const month = moment(date).format('MMM');
@@ -20,15 +20,9 @@ class Posts extends Component {
 
     return (
       <div className={styles['date-block']}>
-        <div className={styles['date-month']}>
-          {month}
-        </div>
-        <div className={styles['date-day']}>
-          {day}
-        </div>
-        <div className={styles['date-year']}>
-          {year}
-        </div>
+        <div className={styles['date-month']}>{month}</div>
+        <div className={styles['date-day']}>{day}</div>
+        <div className={styles['date-year']}>{year}</div>
       </div>
     );
   };
@@ -45,20 +39,12 @@ class Posts extends Component {
           {this._renderDate(postDate)}
         </div>
         <div className={styles['post-body']}>
-          <h2>
-            {title}
-          </h2>
+          <h2>{title}</h2>
           <div className={styles['post-subtitle']}>
-            <p>
-              by {username}
-            </p>
+            <p>by {username}</p>
           </div>
-          <p>
-            {body}
-          </p>
-          <div>
-            Tags: {this._renderTags(tags)}
-          </div>
+          <p>{body}</p>
+          <div>Tags: {this._renderTags(tags)}</div>
         </div>
       </div>
     );

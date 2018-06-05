@@ -1,42 +1,68 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import moment from 'moment';
 
 import styles from './styles.css';
 
+const monthNames = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+];
+
 class Posts extends Component {
-  _renderTags = tags =>
-    tags.map((tag, i) => (
+  constructor(props) {
+    super(props);
+
+    this.renderDate = this.renderDate.bind(this);
+    this.renderPost = this.renderPost.bind(this);
+    this.renderTags = this.renderTags.bind(this);
+  }
+
+  renderTags(tags) {
+    return tags.map((tag, i) => (
       <span key={i} className={styles.tag}>
         {tag}
       </span>
     ));
+  }
 
-  _renderDate = date => {
-    const month = moment(date).format('MMM');
-    const day = moment(date).format('D');
-    const year = moment(date).format('YYYY');
+  renderDate(date) {
+    const parsedDate = new Date(date);
+    const month = parsedDate.getMonth();
+    const day = parsedDate.getDate();
+    const year = parsedDate.getFullYear();
 
     return (
       <div className={styles['date-block']}>
-        <div className={styles['date-month']}>{month}</div>
+        <div className={styles['date-month']}>
+          {month >= 0 && monthNames[month].substr(0, 3)}
+        </div>
         <div className={styles['date-day']}>{day}</div>
         <div className={styles['date-year']}>{year}</div>
       </div>
     );
-  };
+  }
 
-  _renderPost = (id, key) => {
-    const { posts: { postsById }, usersById } = this.props;
+  renderPost(id, key) {
+    const { postsById, usersById } = this.props;
     const post = postsById[id];
-    const { title, author, postDate, body, tags } = post;
-    const { username } = usersById[author];
+    const { title, author, postDate, body, tags } = post || {};
+    const { username } = usersById[author] || {};
 
     return (
       <div key={key} className={styles.post}>
         <div className={styles['post-sidebar']}>
-          {this._renderDate(postDate)}
+          {this.renderDate(postDate)}
         </div>
         <div className={styles['post-body']}>
           <h2>{title}</h2>
@@ -44,31 +70,40 @@ class Posts extends Component {
             <p>by {username}</p>
           </div>
           <p>{body}</p>
-          <div>Tags: {this._renderTags(tags)}</div>
+          {tags && <div>Tags: {this.renderTags(tags)}</div>}
         </div>
       </div>
     );
-  };
+  }
+
   render() {
-    const { posts: { postsList } } = this.props;
+    const { posts } = this.props;
 
     return (
       <div className={styles['posts-container']}>
         <h1>Recent Posts</h1>
-        {postsList.map((id, i) => this._renderPost(id, i))}
+        {posts.map((id, i) => this.renderPost(id, i))}
       </div>
     );
   }
 }
 
 Posts.propTypes = {
-  posts: PropTypes.object,
-  usersById: PropTypes.object,
+  posts: PropTypes.array,
+  postsById: PropTypes.object,
+  usersById: PropTypes.object
+};
+
+Posts.defaultProps = {
+  posts: [],
+  postsById: {},
+  usersById: {}
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  posts: state.data.posts,
-  usersById: state.data.users.usersById,
+  posts: state.data.posts.allIds,
+  postsById: state.data.posts.byId,
+  usersById: state.data.users.byId
 });
 
 export default connect(mapStateToProps)(Posts);

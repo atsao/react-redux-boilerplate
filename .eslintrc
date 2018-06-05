@@ -20,7 +20,6 @@
     "spaced-comment": [1, "always"],
     "indent": [2, 2, {"SwitchCase": 1}],
     "quotes": [1, "single"],
-    "comma-dangle": [1, "always-multiline"],
     "eol-last": [1, "always"],
     "jsx-quotes": [1, "prefer-double"],
     "key-spacing": [2, {"afterColon": true}],
@@ -32,7 +31,8 @@
     "import/order": [1, {"newlines-between": "always"}],
 
     "react/prop-types": 1,
+    "react/require-default-props": 1,
 
-    "prettier/prettier": [2, {"trailingComma": "es5", "singleQuote": true, "bracketSpacing": true}]
+    "prettier/prettier": [2, {"singleQuote": true, "bracketSpacing": true}]
   }
 }

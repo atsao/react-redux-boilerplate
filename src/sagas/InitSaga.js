@@ -9,7 +9,11 @@ function* fetchTasks(action) {
   if (response.ok) {
     yield put(PostsActions.receivePosts(response.data));
   } else {
-    const { status, problem, data: { message } } = response;
+    const {
+      status,
+      problem,
+      data: { message }
+    } = response;
     yield put(PostsActions.receivePostsFailed({ status, problem, message }));
   }
 }
@@ -19,5 +23,5 @@ function* watcher() {
 }
 
 export default {
-  watcher,
+  watcher
 };

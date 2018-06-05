@@ -20,7 +20,11 @@ export class Root extends Component {
 }
 
 Root.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
+};
+
+Root.defaultProps = {
+  children: null
 };
 
 export default Root;

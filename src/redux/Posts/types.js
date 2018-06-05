@@ -7,6 +7,6 @@ export default createTypes(
   POSTS_RECEIVED_FAILURE
 `,
   {
-    prefix: 'posts/',
+    prefix: 'posts/'
   }
 );

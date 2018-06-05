@@ -9,7 +9,7 @@ module.exports = {
     srcIndex: resolvePath('src/index.js'),
     srcHtml: resolvePath('src/index.html'),
     build: resolvePath('build'),
-    public: resolvePath('public'),
+    public: resolvePath('public')
   },
-  publicPath: '/',
+  publicPath: '/'
 };

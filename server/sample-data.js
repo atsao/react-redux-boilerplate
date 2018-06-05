@@ -10,11 +10,11 @@ const generatePosts = () => {
       title: faker.lorem.words(Math.ceil(Math.random() * 5)),
       author: {
         id: faker.random.uuid(),
-        username: faker.internet.userName(),
+        username: faker.internet.userName()
       },
       body: faker.lorem.paragraph(),
       tags: faker.lorem.words().split(' '),
-      comments: [],
+      comments: []
     };
 
     for (let j = 0; j < Math.floor(Math.random() * 4); j++) {
@@ -23,9 +23,9 @@ const generatePosts = () => {
         comment: faker.lorem.sentence(),
         user: {
           id: faker.random.uuid(),
-          username: faker.internet.userName(),
+          username: faker.internet.userName()
         },
-        postDate: faker.date.recent(),
+        postDate: faker.date.recent()
       };
       post.comments.push(comment);
     }

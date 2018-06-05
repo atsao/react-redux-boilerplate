@@ -1,7 +1,7 @@
-import { fork } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
 import InitSaga from './InitSaga'; // eslint-disable-line
 
 export default function* rootSaga() {
-  yield [fork(InitSaga.watcher)];
+  yield all([fork(InitSaga.watcher)]);
 }

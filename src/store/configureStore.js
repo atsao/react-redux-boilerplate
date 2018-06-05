@@ -16,7 +16,7 @@ export default function configureStore(history) {
 
   if (process.env.NODE_ENV !== 'production') {
     const logger = createLogger({
-      stateTransformer,
+      stateTransformer
     });
     middlewares.push(logger);
   }

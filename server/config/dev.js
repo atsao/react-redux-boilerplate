@@ -16,7 +16,7 @@ const dev = app => {
       hot: true,
       stats: { colors: true },
       watchOptions: { ignored: /node_modules/ },
-      historyApiFallback: true,
+      historyApiFallback: true
     })
   );
   app.use(require('webpack-hot-middleware')(compiler));

@@ -9,17 +9,17 @@ const cssLoaders = [
     options: {
       importLoaders: 1,
       modules: true,
-      localIdentName: identName,
-    },
+      localIdentName: identName
+    }
   },
   {
     loader: 'postcss-loader',
     options: {
       config: {
-        path: 'postcss.config.js',
-      },
-    },
-  },
+        path: 'postcss.config.js'
+      }
+    }
+  }
 ];
 
 module.exports = cssLoaders;

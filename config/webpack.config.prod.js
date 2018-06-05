@@ -1,15 +1,18 @@
 // Production config
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const cssLoaders = require('./cssLoaders');
 
-let config = {};
+const config = {};
+
+config.mode = 'production';
 
 config.devtool = 'source-map';
 
 config.output = {
-  filename: '[name].[chunkhash].js',
+  filename: '[name].[chunkhash].js'
 };
 
 config.module = {
@@ -17,37 +20,37 @@ config.module = {
     {
       test: /\.css$/,
       exclude: /node_modules/,
-      loaders: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: cssLoaders,
-      }),
-    },
-  ],
+      use: [MiniCssExtractPlugin.loader].concat(cssLoaders)
+    }
+  ]
 };
 
 config.plugins = [
-  new ExtractTextPlugin({
+  new MiniCssExtractPlugin({
     filename: 'styles.[chunkhash].css',
-    allChunks: true,
+    chunkFilename: '[id].css'
   }),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production'),
+    'process.env': {
+      NODE_ENV: JSON.stringify('production')
+    }
   }),
-  new webpack.optimize.CommonsChunkPlugin({ name: 'common' }),
-  new webpack.LoaderOptionsPlugin({
-    minimize: true,
-    debug: false,
-  }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      unused: true,
-      dead_code: true,
-      warnings: true,
-    },
-    minimize: true,
-    sourceMap: true,
-  }),
-  new webpack.optimize.ModuleConcatenationPlugin(),
+  new webpack.optimize.ModuleConcatenationPlugin()
 ];
+
+config.optimization = {
+  minimizer: [
+    new UglifyJsPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: true
+    })
+  ],
+  splitChunks: {
+    chunks: 'all'
+  }
+};
+
+config.stats = 'minimal';
 
 module.exports = config;

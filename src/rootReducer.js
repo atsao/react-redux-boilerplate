@@ -5,5 +5,5 @@ import { PostsReducer } from './redux/Posts';
 
 export default combineReducers({
   routing: routerReducer,
-  data: PostsReducer,
+  data: PostsReducer
 });

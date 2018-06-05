@@ -1,14 +1,15 @@
-import Types from './types';
+import { createActions } from 'reduxsauce';
 
-const requestPosts = () => ({ type: Types.POSTS_REQUEST });
-const receivePosts = payload => ({ type: Types.POSTS_RECEIVED, payload });
-const receivePostsFailed = error => ({
-  type: Types.POSTS_RECEIVED_FAILURE,
-  error
-});
+const { Types, Creators } = createActions(
+  {
+    request: null,
+    success: ['models'],
+    failure: ['error']
+  },
+  {
+    prefix: 'POSTS_'
+  }
+);
 
-export default {
-  requestPosts,
-  receivePosts,
-  receivePostsFailed
-};
+export { Creators, Types };
+export default { Creators, Types };

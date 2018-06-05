@@ -47,7 +47,9 @@ ShallowWrapper {
       "_instance": Root {
         "_reactInternalInstance": [Circular],
         "context": Object {},
-        "props": Object {},
+        "props": Object {
+          "children": null,
+        },
         "refs": Object {},
         "state": null,
         "updater": Object {

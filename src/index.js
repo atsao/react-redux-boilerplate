@@ -8,12 +8,9 @@ import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store/configureStore';
 import routes from './routes';
-import { PostsActions } from './redux/Posts';
 
 const history = createBrowserHistory();
 const store = configureStore(history);
-
-store.dispatch(PostsActions.requestPosts());
 
 const app = (
   <Provider store={store}>

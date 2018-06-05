@@ -1,52 +1,41 @@
-import Immutable from 'seamless-immutable';
-import { normalize, schema } from 'normalizr';
+import updateImmutable from 'immutability-helper';
 import { createReducer } from 'reduxsauce';
 
-import Types from './types';
+import { Types } from './actions';
 
-const user = new schema.Entity('users');
-const comment = new schema.Entity('comments', {
-  user: user
-});
-const post = new schema.Entity('posts', {
-  author: user,
-  comments: [comment]
-});
+export const INITIAL_STATE = {
+  allIds: [],
+  byId: {},
+  error: null
+};
 
-export const INITIAL_STATE = Immutable({
-  posts: {
-    allIds: [],
-    byId: {}
-  },
-  users: {
-    allIds: [],
-    byId: {}
-  },
-  comments: {
-    allIds: [],
-    byId: {}
-  }
-});
+const normalize = list =>
+  list.reduce((acc, item) => {
+    const { id } = item;
+
+    if (!acc[id]) {
+      acc[id] = item;
+    }
+
+    return acc;
+  }, {});
 
 export const reset = state => INITIAL_STATE;
 
-export const receive = (state, action) => {
-  const {
-    entities: { posts, users },
-    result
-  } = normalize(action.payload, [post]);
-
-  return state
-    .setIn(['posts', 'allIds'], result)
-    .setIn(['posts', 'byId'], posts)
-    .setIn(['users', 'byId'], users)
-    .setIn(['users', 'allIds'], Object.keys(users));
-};
+export const success = (state, { models }) =>
+  updateImmutable(state, {
+    allIds: {
+      $set: models.map(item => item.id)
+    },
+    byId: {
+      $set: normalize(models)
+    }
+  });
 
 export const HANDLERS = {
-  [Types.POSTS_REQUEST]: reset,
-  [Types.POSTS_RECEIVED]: receive,
-  [Types.POSTS_RECEIVED_FAILURE]: reset
+  [Types.REQUEST]: reset,
+  [Types.SUCCESS]: success,
+  [Types.FAILURE]: reset
 };
 
 export default createReducer(INITIAL_STATE, HANDLERS);

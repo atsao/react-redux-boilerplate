@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
-import { stateTransformer } from 'redux-seamless-immutable';
 import { createLogger } from 'redux-logger';
 
 import rootReducer from '../rootReducer';
@@ -15,9 +14,7 @@ export default function configureStore(history) {
   const middlewares = [sagaMiddleware, middleware];
 
   if (process.env.NODE_ENV !== 'production') {
-    const logger = createLogger({
-      stateTransformer
-    });
+    const logger = createLogger();
     middlewares.push(logger);
   }
 

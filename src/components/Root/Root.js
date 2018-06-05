@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Nav from './Nav';
+import Nav from '../Nav';
+
 import styles from './Root.css';
-import '../assets/css/index.css';
+import '../../assets/css/index.css';
 
 export class Root extends Component {
   render() {

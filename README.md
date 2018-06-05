@@ -13,11 +13,10 @@ Included is a barebones app to demonstrate routing and sagas.
   * react-router-redux v5 (beta)
 * Redux
   * redux-saga
-  * seamless-immutable
 * Node/Express
 * Babel, ES6
 * ESLint + PrettierJS
-* Webpack 3
+* Webpack 4
   * CSS Modules
     * PostCSS with Autoprefixer
   * Hot Module Reload

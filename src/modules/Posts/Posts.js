@@ -112,7 +112,4 @@ const mapDispatchToProps = dispatch => ({
   fetchPosts: () => dispatch(PostsActions.request())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Posts);
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

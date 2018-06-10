@@ -2,110 +2,156 @@
 
 exports[`Root renders without crashing 1`] = `
 ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
   "length": 1,
-  "node": <div>
-    <div
-        className="header"
-    >
-        <h1
-            className="main-header"
-        >
-            react-redux-boilerplate
-        </h1>
-        <Nav />
-    </div>
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Root />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="header"
+>
+          <h1
+                    className="main-header"
+          >
+                    react-redux-boilerplate
+          </h1>
+          <Nav />
 </div>,
-  "nodes": Array [
-    <div>
-      <div
-            className="header"
-      >
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
             <h1
-                  className="main-header"
+              className="main-header"
+>
+              react-redux-boilerplate
+</h1>,
+            <Nav />,
+          ],
+          "className": "header",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "react-redux-boilerplate",
+              "className": "main-header",
+            },
+            "ref": null,
+            "rendered": "react-redux-boilerplate",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      null,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="header"
+>
+            <h1
+                        className="main-header"
             >
-                  react-redux-boilerplate
+                        react-redux-boilerplate
             </h1>
             <Nav />
-      </div>
 </div>,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
-      "_context": Object {},
-      "_currentElement": <Root />,
-      "_debugID": 1,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": Root {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "props": Object {
-          "children": null,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
+          null,
+        ],
       },
-      "_mountOrder": 1,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <div>
-          <div
-                    className="header"
-          >
-                    <h1
-                              className="main-header"
-                    >
-                              react-redux-boilerplate
-                    </h1>
-                    <Nav />
-          </div>
-</div>,
-        "_debugID": 2,
-        "_renderedOutput": <div>
-          <div
-                    className="header"
-          >
-                    <h1
-                              className="main-header"
-                    >
-                              react-redux-boilerplate
-                    </h1>
-                    <Nav />
-          </div>
-</div>,
-      },
-      "_renderedNodeType": 0,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="main-header"
+>
+                react-redux-boilerplate
+</h1>,
+              <Nav />,
+            ],
+            "className": "header",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "react-redux-boilerplate",
+                "className": "main-header",
+              },
+              "ref": null,
+              "rendered": "react-redux-boilerplate",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        null,
+      ],
+      "type": "div",
     },
-    "getRenderOutput": [Function],
-    "render": [Function],
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
   },
-  "root": [Circular],
-  "unrendered": <Root />,
 }
 `;
